@@ -1,0 +1,39 @@
+{
+  "name": "tsc-tutorial",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fengyun2/tsc-tutorial.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "ly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fengyun2/tsc-tutorial/issues"
+  },
+  "homepage": "https://github.com/fengyun2/tsc-tutorial#readme",
+  "devDependencies": {
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.4",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.8",
+    "tsify": "^1.0.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-file": "^2.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "typescript": "^2.1.0-dev.20160719"
+  }
+}
