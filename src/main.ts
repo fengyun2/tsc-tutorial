@@ -43,7 +43,7 @@ clock.setTime(new Date('2016-07-20'))
 clock.geTime()
 
 // 扩展接口
-interface Shape{
+interface Shape {
   color: string
 }
 interface PenStroke {
@@ -53,11 +53,11 @@ interface Square extends Shape, PenStroke {
   sideLength: number
 }
 
-let squre = <Square>{}
+let squre = < Square > {}
 squre.color = "blue"
 squre.sideLength = 10
 squre.penWidth = 5.0
-console.log(squre)
+  // console.log(squre)
 
 interface Counter {
   (start: number): string
@@ -66,9 +66,9 @@ interface Counter {
 }
 
 function getCounter(): Counter {
-  let counter = <Counter> function(start: number) {}
+  let counter = < Counter > function(start: number) {}
   counter.interval = 123
-  counter.reset = function(){}
+  counter.reset = function() {}
   return counter;
 }
 let c = getCounter()
@@ -76,4 +76,44 @@ c(10)
 c.reset()
 c.interval = 5.0
 
-console.log(c)
+console.log(c.interval)
+
+
+
+let passcode = "secret passcode"
+
+class Employee {
+  private _fullName: string
+
+  get fullName(): string {
+    return this._fullName;
+  }
+
+  set fullName(newName: string) {
+    if (passcode && passcode === 'secret passcode') {
+      this._fullName = newName
+    } else {
+      console.log('你没有权限修改密码')
+    }
+  }
+}
+
+let employee = new Employee()
+employee.fullName = "baby"
+if (employee.fullName) {
+  console.log(employee.fullName)
+}
+
+class Greeter {
+  greeting: string
+  constructor(message: string) {
+    this.greeting = message
+  }
+  greet() {
+    return `Hello, ${this.greeting}`;
+  }
+}
+
+let greeter: Greeter
+greeter = new Greeter("world")
+console.log(greeter.greet())
