@@ -1,40 +1,48 @@
-var gulp = require('gulp');
-var browserify = require('browserify');
-var source = require('vinyl-source-stream');
-var tsify = require('tsify');
-var sourcemaps = require('gulp-sourcemaps');
-var buffer = require('vinyl-buffer');
-var watch = require('gulp-watch');
-var paths = {
-    pages: ['src/*.html'],
-    tsSrc: ['src/**/*.ts']
-};
+/*
+ * @Author: fengyun2
+ * @Date:   2016-08-13 09:27:06
+ * @Last Modified by:   baby
+ * @Last Modified time: 2016-08-13 10:14:40
+ */
 
-gulp.task('copyHtml', function () {
+'use strict';
+
+const gulp = require('gulp')
+const ts = require('gulp-typescript')
+const merge = require('merge2')
+
+const paths = {
+    pages: ['app/*.html'],
+    tsSrc: ['app/**/*.ts'],
+    tsDist: 'dist/definitions',
+    jsDist: 'dist/js',
+    htmlDist: 'dist'
+}
+
+gulp.task('copyHtml', function() {
     return gulp.src(paths.pages)
-        .pipe(gulp.dest('dist'));
-});
+        .pipe(gulp.dest(paths.htmlDist));
+})
 
-gulp.task('default', ['copyHtml'], function () {
-    return browserify({
-        basedir: '.',
-        debug: true,
-        entries: ['src/main.ts'],
-        cache: {},
-        packageCache: {}
-    })
-    .plugin(tsify)
-    .transform("babelify")
-    .bundle()
-    .pipe(source('bundle.js'))
-    .pipe(buffer())
-    .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('dist'));
+let tsProject = ts.createProject('tsconfig.json', {
+    sortOutput: true,
+    declaration: true,
+    noExternalResolve: true,
+    typescript: require('typescript')
 });
+// 编译为ts和js
+gulp.task('scripts', function() {
+    const tsResult = gulp.src(paths.tsSrc)
+        .pipe(ts(tsProject))
+    return merge([
+        // tsResult.dts.pipe(gulp.dest(paths.tsDist)),
+        tsResult.js.pipe(gulp.dest(paths.jsDist))
+    ])
+})
 
-//监听任务
-gulp.task('watch', function() {
-    // 监听images
-    gulp.watch(tsSrc, ['default']);
-});
+// 监听文件变化
+gulp.task('watch', ['scripts'], function() {
+    gulp.watch(paths.tsSrc, ['scripts'])
+})
+
+gulp.task('default', ['scripts', 'watch'])

@@ -20,13 +20,22 @@
   },
   "homepage": "https://github.com/fengyun2/tsc-tutorial#readme",
   "devDependencies": {
+    "babel-eslint": "^6.1.2",
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
+    "eslint": "^3.3.0",
+    "eslint-config-airbnb": "^10.0.1",
+    "eslint-plugin-html": "^1.5.2",
+    "eslint-plugin-import": "^1.13.0",
+    "eslint-plugin-jsx-a11y": "^2.1.0",
+    "eslint-plugin-react": "^6.0.0",
     "gulp": "^3.9.1",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.13.6",
     "gulp-uglify": "^1.5.4",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.8",
+    "merge2": "^1.0.2",
     "tsify": "^1.0.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-file": "^2.0.0",
@@ -34,6 +43,6 @@
     "watchify": "^3.7.0"
   },
   "dependencies": {
-    "typescript": "^2.1.0-dev.20160719"
+    "typescript": "^2.1.0-dev.20160812"
   }
 }
