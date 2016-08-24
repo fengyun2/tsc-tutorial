@@ -29,3 +29,5 @@ chrome-user-data
 *.iml
 .vscode
 test
+build
+/build

@@ -1,0 +1,20 @@
+{
+  "name": "tsc-webpack-biolerplate",
+  "version": "1.0.0",
+  "description": "tsc-webpack-biolerplate",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fengyun2/tsc-tutorial/tsc-webpack-biolerplate"
+  },
+  "keywords": [
+    "typescript",
+    "webpack",
+    "biolerplate"
+  ],
+  "author": "LY",
+  "license": "MIT"
+}
