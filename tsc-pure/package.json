@@ -17,5 +17,6 @@
     "lite-server": "^2.2.2"
   },
   "dependencies": {
+    "lodash": "^4.16.4"
   }
 }

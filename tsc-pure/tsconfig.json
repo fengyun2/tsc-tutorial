@@ -5,16 +5,13 @@
         "noImplicitAny": true,
         "module": "commonjs",
         "removeComments": true,
-        "outDir": "./src/js"
+        "outDir": "src/js"
     },
     "include": [
-        "./src/ts"
-    ],
-    "files": [
-        "./src/ts/index.ts"
+        "src/ts/**/*"
     ],
     "exclude": [
         "node_modules",
-        "./src/js"
+        "src/js/**/*"
     ]
 }
