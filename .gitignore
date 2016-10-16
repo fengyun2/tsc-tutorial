@@ -1,4 +1,3 @@
-dist/
 dist
 npm-debug.log
 .DS_STORE
@@ -27,5 +26,4 @@ chrome-user-data
 *.sublime-workspace
 .idea
 *.iml
-.vscode
 test
